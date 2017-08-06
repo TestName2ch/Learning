@@ -79,14 +79,13 @@ namespace CaesarCipher
 
         internal static void ShowTxtFile(string filename)
         {
-            //No need to check if file exist because this method is called after 'CheckFileName'
-            //Check file size, if it <5mb then its safe for show in console window
-            //Otherwise it could be long waiting until all content is presented
+
             filename = CheckFileName(filename);
 
             if (string.IsNullOrWhiteSpace(filename))
                 return;
-
+            //Check file size, if it <5mb then its safe for show in console window
+            //Otherwise it could be long waiting until all content is presented
             FileInfo fileInfo = new FileInfo(filename);
             const int possibleTxtSize = 5 * 1024 * 1024;
 

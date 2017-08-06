@@ -14,6 +14,8 @@ namespace CaesarCipher
     {
         private static readonly string EnglishLetters;
         private static readonly string RussianLetters;
+        private const byte EnglishCount = 26;
+        private const byte RussianCount = 33;
 
         private static byte CaesarStrength { get; set; }
 
@@ -102,14 +104,14 @@ namespace CaesarCipher
                 int index;
                 if (EnglishLetters.Contains(char.ToLower(letter)))
                 {
-                    index = (EnglishLetters.IndexOf(char.ToLower(letter)) + CaesarStrength) % 26;
+                    index = (EnglishLetters.IndexOf(char.ToLower(letter)) + CaesarStrength) % EnglishCount;
                     newContent += char.IsLower(letter)
                         ? EnglishLetters[index]
                         : char.ToUpper(EnglishLetters[index]);
                 }
                 else if (RussianLetters.Contains(char.ToLower(letter)))
                 {
-                    index = (RussianLetters.IndexOf(char.ToLower(letter)) + CaesarStrength) % 33;
+                    index = (RussianLetters.IndexOf(char.ToLower(letter)) + CaesarStrength) % RussianCount;
                     newContent += char.IsLower(letter)
                         ? RussianLetters[index]
                         : char.ToUpper(RussianLetters[index]);

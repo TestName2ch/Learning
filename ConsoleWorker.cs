@@ -85,9 +85,6 @@ namespace CaesarCipher
                 return;
             }
 
-            //Return full path to file if find file with given filename
-            //if files are more than 1 or no files at all, return empty string
-
             switch (command)
             {
                 case "show":
